@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/TortillaGames/Tortilla/main/tortilla.png">
+    <title>Tortilla - Changelog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .version-container {
+            max-width: calc(100% - 20px); /* 10px space on each side */
+            margin: 10px; /* Space between containers */
+            padding: 20px;
+            background-color: rgba(0, 0,  0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .version {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .entry {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-container">
+        <div class="version">1.0.3</div>
+        <div class="entry">- More fixes</div>
+        <div class="entry">- More games</div>
+        <div class="entry">- Updated links</div>
+    </div>
+
+    <div class="version-container">
+        <div class="version">1.0.2</div>
+        <div class="entry">- More QOL features and fixes</div>
+        <div class="entry">- Update Notifier</div>
+    </div>
+
+    <div class="version-container">
+        <div class="version">1.0.1</div>
+        <div class="entry">- Fixed games and added QOL features</div>
+    </div>
+
+    <div class="version-container">
+        <div class="version">1.0.0</div>
+        <div class="entry">- Created Tortilla</div>
+    </div>
+</body>
+</html>
