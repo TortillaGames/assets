@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title id="pageTitle">Tortilla - Roblox</title>
+    <link rel="icon" href="../../tortilla.png">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="apple-touch-icon" href="../../tortilla.png">
+    <meta name="theme-color" content="#3533cc"> 
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url("../../background.png") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #info {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: left;
+        }
+    </style>
+    <script>
+        let robloxScreenClicked = false;
+
+        function showInfo() {
+            if (!robloxScreenClicked) {
+                robloxScreenClicked = true;
+                document.getElementById('pageTitle').textContent = "This you?";
+                document.getElementById("robloxScreen").style.display = "none";
+                const infoDiv = document.getElementById("info");
+                infoDiv.style.display = "block";
+
+                const stages = [
+                    "IP Address: <span id='ip'></span>",
+                    "City: <span id='city'></span>",
+                    "State: <span id='state'></span>",
+                    "Country: <span id='country'></span>",
+                    "Coordinates: <span id='coordinates'></span>",
+                    "Browser: " + navigator.userAgent,
+                    "OS: " + navigator.platform,
+                    "Local Time: <span id='time'></span>",
+                    "Screen Resolution: " + window.screen.width + "x" + window.screen.height,
+                    "Language: " + navigator.language,
+                    "User Timezone: <span id='timezone'></span>",
+                    "Cookies Enabled: <span id='cookies'></span>",
+                    "You Are: Cringe",
+                    "Current Status: ඞ"
+                ];
+
+                let currentStage = 0;
+                const infoText = document.getElementById("infoText");
+
+                function displayNextStage() {
+                    if (currentStage < stages.length) {
+                        const stageText = stages[currentStage];
+                        infoText.innerHTML += stageText + "<br>";
+
+                        if (currentStage === 1 || currentStage === 2 || currentStage === 3 || currentStage === 4) {
+                            fetchLocationData();
+                        }
+                        if (currentStage === 11) {
+                            document.getElementById("cookies").textContent = navigator.cookieEnabled ? 'Yes' : 'No';
+                        }
+                        if (currentStage === 10) {
+                            getUserTimezone();
+                        }
+
+                        currentStage++;
+                        setTimeout(displayNextStage, 500);
+                    }
+                }
+
+                displayNextStage();
+
+                setInterval(updateTime, 1000);
+                updateTime();
+
+                setTimeout(randomHacked, stages.length * 500);
+            }
+        }
+
+        function fetchLocationData() {
+            fetch("https://ip-api.io/json/")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("ip").textContent = data.ip;
+                    document.getElementById("city").textContent = data.city || "Not available";
+                    document.getElementById("state").textContent = data.region_name || "Not available";
+                    document.getElementById("country").textContent = data.country_name || "Not available";
+                    const coordinates = `${data.latitude}, ${data.longitude}`;
+                    document.getElementById("coordinates").textContent = coordinates;
+                    document.getElementById("timezone").textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                })
+                .catch(error => {
+                    console.error("Error fetching data: " + error);
+                });
+        }
+
+        function randomHacked() {
+            const options = ["Yes", "No", "Maybe"];
+            const randomIndex = Math.floor(Math.random() * options.length);
+            const hackedSpan = document.getElementById("hacked");
+            hackedSpan.textContent = options[randomIndex];
+        }
+
+        function updateTime() {
+            const timeSpan = document.getElementById("time");
+            const currentTime = new Date().toLocaleTimeString();
+            timeSpan.textContent = currentTime;
+        }
+
+        function getUserTimezone() {
+            const timezoneSpan = document.getElementById("timezone");
+            timezoneSpan.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
+
+        document.body.oncontextmenu = function() {
+            return false;
+        };
+    </script>
+</head>
+<body onclick="showInfo()">
+    <div id="robloxScreen">
+        <h1>Click to play Roblox!</h1>
+    </div>
+    <div id="info">
+        <div id="infoText"></div>
+        <div>
+        </div>
+    </div>
+</body>
+</html>
