@@ -33,6 +33,11 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.0.5</div>
+        <div class="entry">- More games</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.0.4</div>
         <div class="entry">- More games</div>
     </div>
