@@ -33,6 +33,13 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.0.6</div>
+        <div class="entry">- Added apps</div>
+        <div class="entry">- Big overhaul to how things work</div>
+        <div class="entry">- New built-in proxy</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.0.5</div>
         <div class="entry">- More games</div>
     </div>
