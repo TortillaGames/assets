@@ -33,6 +33,13 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.0.8</div>
+        <div class="entry">- Fixed apps</div>
+        <div class="entry">- Added proxy</div>
+        <div class="entry">- Removed fake virus</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.0.7</div>
         <div class="entry">- More games</div>
         <div class="entry">- Fixed EagleSMP not working</div>
