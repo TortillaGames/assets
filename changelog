@@ -33,6 +33,13 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.0.9</div>
+        <div class="entry">- Added search bar to games</div>
+        <div class="entry">- More games</div>
+        <div class="entry">- Prepairing for the first major update</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.0.8</div>
         <div class="entry">- Fixed apps</div>
         <div class="entry">- Added proxy</div>
