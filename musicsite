@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tortilla - Music Player</title>
-    <link rel="icon" href="tortilla.png" type="image/png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="tortilla.png">
-    <meta name="theme-color" content="#3533cc">
+    <title>Music Player</title>
     <style>
         body {
             background-image: url('https://raw.githubusercontent.com/TortillaGames/Tortilla/main/background.png');
