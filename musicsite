@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tortilla - Music Player</title>
+    <link rel="icon" href="tortilla.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="tortilla.png">
+    <meta name="theme-color" content="#3533cc">
+    <style>
+        body {
+            background-image: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'PT Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+            position: relative;
+        }
+        .navbar a::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: blue;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            opacity: 1;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            font-size: 72px;
+            font-weight: bold;
+            color: white;
+            opacity: 0;
+            transform: translateX(-100%); /* Initially off-screen */
+            animation: slideInFromLeft 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards; /* Slide in from left and fade in for title */
+        }
+        .subheader {
+            font-size: 18px;
+            color: white;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateX(100%); /* Initially off-screen */
+            animation: slideInFromRight 1s ease-in-out forwards, fadeIn 1s ease-in-out forwards; /* Slide in from right and fade in for description */
+        }
+        .image-container {
+            position: relative;
+            top: -100px;
+            opacity: 0;
+            transition: top 1s ease-in-out, opacity 1s ease-in-out;
+            animation: slideInFromTop 1s ease-in-out 1s forwards; /* Slide in from top for image with delay */
+        }
+        .image {
+            width: 150px;
+            height: 150px;
+        }
+
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .search-bar {
+            text-align: center;
+            background-color: transparent;
+            padding: 10px 0;
+            width: 100%;
+            position: absolute; /* Use absolute positioning */
+            top: 35px; /* Adjusted to 35px to have 10px space from the navbar */
+            z-index: 999; /* Increase z-index to be above the navbar */
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 80%;
+        }
+
+        .no-matches {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Style for the audio elements and song titles */
+        .song-container {
+            width: 80%;
+            margin-top: 45px; /* Adjusted to create space for search bar */
+        }
+
+        .song {
+            width: 100%;
+        }
+
+        .song-title {
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="games.html">Games</a>
+        <a href="mc-skin-downloader.html">MC Skins</a>
+        <a href="apps.html">Apps</a>
+        <a href="music.html" class="active">Music Player</a>
+        <a href="changelog.html">Changelog</a>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="gameSearch" oninput="searchGames()" placeholder="Search...">
+    </div>
+    <br><br>
+    <div class="song-container">
+        <h2 class="song-title">Never Gonna Give You Up</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/rick_astley.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">1v1 Music</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/1v1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Speedrun</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/speedrun.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">It's Corn</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/corn.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Mission Impossible Theme</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/missionimpossible.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Sad Trollge</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/sad.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Very Sad Trollge</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/very-sad.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Minecraft Otherside</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/otherside.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Amongus Drip</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/amogus.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Amongus Drip Remix</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/amogusremix.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h2 class="song-title">Wait What?</h2>
+        <audio controls class="song" loop>
+            <source src="https://raw.githubusercontent.com/TortillaGames/assets/main/music/what.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <br><br><br>
+    </div>
+    <div class="no-matches" id="noMatches">No songs matched your search query.</div>
+    <script>
+        function searchGames() {
+            var searchTerm = document.getElementById('gameSearch').value.toLowerCase();
+            var songTitles = document.querySelectorAll('.song-title');
+            var noMatches = document.getElementById('noMatches');
+            var matchesFound = false;
+
+            songTitles.forEach(function(title) {
+                var songTitle = title.textContent.toLowerCase();
+                var songContainer = title.nextElementSibling; // Get the audio element's parent container
+
+                if (songTitle.includes(searchTerm)) {
+                    songContainer.style.display = 'block';
+                    title.style.display = 'block'; // Show the title
+                    matchesFound = true;
+                } else {
+                    songContainer.style.display = 'none';
+                    title.style.display = 'none'; // Hide the title
+                }
+            });
+
+            if (matchesFound) {
+                noMatches.style.display = 'none';
+            } else {
+                noMatches.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
