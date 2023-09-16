@@ -24,7 +24,6 @@
             padding: 10px 0;
             width: 100%;
             position: absolute; /* Use absolute positioning */
-            top: 35px; /* Adjusted to 35px to have 10px space from the navbar */
             z-index: 999; /* Increase z-index to be above the navbar */
         }
 
@@ -44,7 +43,7 @@
         /* Style for the audio elements and song titles */
         .song-container {
             width: 80%;
-            margin-top: 45px; /* Adjusted to create space for search bar */
+            margin-top: 10px; /* Adjusted to create space for search bar */
         }
 
         .song {
