@@ -1,4 +1,4 @@
-→<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
 <body>
     <div class="version-container">
         <div class="version">1.1.1</div>
-        <div class="entry">- ↑ Funny update number</div>
+        <div class="entry">- ↑ Funny update name</div>
         <div class="entry">- Finally a custom domain (tortillagames.org)</div>
         <div class="entry">- Accounts</div>
     </div>
@@ -86,7 +86,7 @@
         <div class="version">1.0.3</div>
         <div class="entry">- More fixes</div>
         <div class="entry">- More games</div>
-        <div class="entry">- Updated links</div>
+        <div class="entry">- Updated link</div>
     </div>
 
     <div class="version-container">
