@@ -33,16 +33,37 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.1.4</div>
+        <div class="entry">- Added tab cloaking+about:blank to settings</div>
+    </div>
+
+    <div class="version-container">
+        <div class="version">1.1.3</div>
+        <div class="entry">- Added site visit count</div>
+        <div class="entry">- Added credits</div>
+    </div>
+
+    <div class="version-container">
+        <div class="version">1.1.2</div>
+        <div class="entry">- Added settings</div>
+        <div class="entry">- Finally a working UNO</div>
+        <div class="entry">- More games</div>
+        <div class="entry">- More apps</div>
+        <div class="entry">- New system for blocking stuff</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.1.1</div>
         <div class="entry">- ↑ Funny update name</div>
         <div class="entry">- Finally a custom domain (tortillagames.org)</div>
-        <div class="entry">- Accounts</div>
+        <div class="entry">- Changed main menu animations</div>
     </div>
 
     <div class="version-container">
         <div class="version">1.1.0</div>
         <div class="entry">- First major update</div>
         <div class="entry">- Music player</div>
+        <div class="entry">- No selling site anymore >:)</div>
     </div>
 
     <div class="version-container">
@@ -55,7 +76,6 @@
     <div class="version-container">
         <div class="version">1.0.8</div>
         <div class="entry">- Fixed apps</div>
-        <div class="entry">- Added proxy</div>
         <div class="entry">- Removed fake virus</div>
     </div>
 
@@ -69,7 +89,6 @@
         <div class="version">1.0.6</div>
         <div class="entry">- Added apps</div>
         <div class="entry">- Big overhaul to how things work</div>
-        <div class="entry">- New built-in proxy</div>
     </div>
 
     <div class="version-container">
