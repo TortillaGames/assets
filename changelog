@@ -34,7 +34,7 @@
 <body>
     <div class="version-container">
         <div class="version">1.1.5</div>
-        <div class="entry">- Added sorting mode</div>
+        <div class="entry">- Added games sorting mode to settings</div>
     </div>
 
     <div class="version-container">
