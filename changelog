@@ -33,6 +33,14 @@
 </head>
 <body>
     <div class="version-container">
+        <div class="version">1.1.7</div>
+        <div class="entry">- Added advertisements</div>
+        <div class="entry">- Added new hacker theme</div>
+        <div class="entry">- Added chip</div>
+        <div class="entry">- Removed scroll bars from games</div>
+    </div>
+
+    <div class="version-container">
         <div class="version">1.1.6</div>
         <div class="entry">- Updated cookie clicker from 2.048 to 2.052</div>
     </div>
